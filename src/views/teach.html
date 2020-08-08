@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Proffy | Become a Proffy</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/partials/header.css">
+  <link rel="stylesheet" href="/styles/partials/forms.css">
+  <link rel="stylesheet" href="/styles/partials/page-teach.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+
+  <script src="/scripts/addField.js" defer></script>
+</head>
+<body id="page-teach">
+  <div id="container">
+    <header class="page-header">
+      <div class="top-bar-container">
+        <a href="/">
+          <img src="/images/icons/back.svg" alt="return">
+        </a>
+        <img src="/images/logo.svg" alt="Proffy">
+      </div>
+      <div class="header-content">
+        <strong>So you wanna be a Proffy? Awesome!</strong>
+        <p>The first step is filling out this form.</p>
+      </div>
+    </header>
+    <main>
+      <form action="/save-proffy" id="create-class" method="POST">
+        <fieldset>
+          <legend>About You</legend>
+
+          <div class="input-block">
+            <label for="name">Full name</label>
+            <input name="name" id="name" type="text" required>
+          </div>
+          <div class="input-block">
+            <label for="avatar">Picture link <small>(starting with https://)</small></label>
+            <input name="avatar" id="avatar" type="url" required>
+          </div>
+          <div class="input-block">
+            <label for="whatsapp">Whatsapp <small>(numbers only)</small></label>
+            <input name="whatsapp" id="whatsapp" type="number" required>
+          </div>
+          <div class="textarea-block">
+            <label for="bio">About me</label>
+            <textarea name="bio" id="bio" required></textarea>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>About the Class</legend>
+
+          <div class="select-block">
+            <label for="subject">Subject</label>
+            <select name="subject" id="subject">
+              <option value=""></option>
+              {%for subject in subjects%}
+                <option value="{{loop.index}}">
+                  {{subject}}
+                </option>
+              {%endfor%}
+            </select>
+          </div>
+          <div class="input-block">
+            <label for="price">Price per class/hour
+              <small>(U$)</small>
+            </label>
+            <input name="price" id="price" type="number" required>
+          </div>
+        </fieldset>
+        <fieldset id="schedule-items">
+          <legend>Available Time
+            <button id="add-time" type="button">+ New Time Slot</button>
+          </legend>
+
+          <div class="schedule-item">
+            <div class="select-block">
+              <label for="weekday">Week Day</label>
+              <select name="weekday[]" required>
+                <option value=""></option>
+                {%for weekday in weekdays%}
+                  <option value="{{loop.index}}">
+                    {{weekday}}
+                  </option>
+                {%endfor%}
+              </select>
+            </div>
+            <div class="input-block">
+              <label for="time_from">From</label>
+              <input name="time_from[]" type="time" required>
+            </div>
+            <div class="input-block">
+              <label for="time_to">To</label>
+              <input name="time_to[]" type="time" required>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <footer>
+        <p>
+          <img src="/images/icons/warning.svg" alt="warning">
+          Important!<br/>
+          Fill out all fields
+        </p>
+        <button type="submit" form="create-class">Save Form</button>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+#page-teach #container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.page-header .header-content {
+  margin-bottom: 6.4rem;
+}
+
+main {
+  width: 100%;
+  max-width: 74rem;
+  margin: -3.2rem auto 6rem;
+  padding-top: 6.4rem;
+
+  background: var(--color-box-base);
+  border-radius: .8rem;
+}
+
+fieldset {
+  padding: 0 2.4rem;
+  border: none;
+}
+
+fieldset+fieldset {
+  margin-top: 4rem;
+}
+
+fieldset legend {
+  width: 100%;
+  margin-bottom: 2.4rem;
+  padding-bottom: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font: 700 2.4rem Archivo;
+  color: var(--color-text-title);
+  border-bottom: 1px solid var(--color-line-in-white);
+}
+
+fieldset legend button {
+  background: none;
+  border: 0;
+
+  font: 700 1.6rem Archivo;
+  color: var(--color-primary);
+
+  cursor: pointer;
+  transition: 0.2;
+}
+
+fieldset legend button:hover {
+  color: var(--color-primary-dark);
+}
+
+.schedule-item+.schedule-item {
+  margin-top: 3.2rem;
+  padding-top: 3.2rem;
+
+  border-top: 1px solid var(--color-line-in-white);
+}
+
+main footer {
+  margin-top: 6.4rem;
+  padding: 4rem 2.4rem;
+
+  background: var(--color-box-footer);
+  border-top: 1px solid var(--color-line-in-white);
+  border-bottom-left-radius: .8rem;
+  border-bottom-right-radius: .8rem;
+}
+
+main footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--color-text-complement);
+}
+
+main footer p img {
+  margin-right: 2rem;
+}
+
+main footer button {
+  width: 100%;
+  height: 5.6rem;
+  margin-top: 3.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: .8rem;
+
+  font: 700 1.6rem Archivo;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+main footer button:hover {
+  background: var(--color-secondary-dark);
+}
+
+@media (min-width: 700px) {
+  #page-teach #container {
+    max-width: 100vw;
+  }
+
+  main {
+    margin-bottom: 80px;
+  }
+
+  main fieldset {
+    padding: 0 64px;
+  }
+
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  main footer {
+    padding: 40px 64px; 
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  main footer button {
+    width: 200px;
+    margin-top: 0;
+  }
+}
