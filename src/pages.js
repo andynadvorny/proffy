@@ -10,7 +10,15 @@ function pageLanding(req, res) {
 }
 
 function pageSuccess(req, res) {
-  return res.render("success.html")
+  const subject = req.query.subject
+  const weekday = req.query.weekday
+  const time = req.query.time
+
+  return res.render("success.html", {
+    subject: subject,
+    weekday: weekday,
+    time: time
+  })
 }
 
 async function pageStudy(req, res) {
@@ -85,7 +93,7 @@ async function saveProffy(req, res) {
     queryString += "&weekday=" + req.body.weekday[0]
     queryString += "&time=" + req.body.time_from[0]
 
-    return res.redirect("/study" + queryString)
+    return res.redirect("/success" + queryString)
   } catch (error) {
     console.log(error)
   }  
